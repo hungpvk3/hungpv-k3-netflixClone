@@ -2,7 +2,7 @@ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import { useContext, useState } from 'react'
 import { InfoContext } from '../contexts/InfoContext'
 import user from '../asset/img/user.png'
-import { Button } from '@material-ui/core'
+import { Button, Link } from '@material-ui/core'
 import './style.css'
  
 const App = () => {
@@ -38,7 +38,7 @@ const App = () => {
                     <h5 className="mt-0">Kevin Pham</h5>
                     <p>Hi, mình là kevin pham rất hân hạnh được hợp tác dfdcdcdcdcdc</p>
                     <Button variant="outlined" color="primary" className="btn mb-3">
-                        Primary
+                        Edit Info
                     </Button>
                 </div>
             </div>
@@ -62,9 +62,14 @@ const App = () => {
                                         {...provided.draggableProps}
                                         {...provided.dragHandleProps}
                                     >
-                                        <div className="card_content-item mt-3">
-                                            { item.name }
-                                        </div>
+                                        <Link href={item.url}>
+                                            <div className="card_content-item mt-3">
+                                                <div className="card_content-item-icon">
+                                                    <div className="card_content-item-img ml-3 mr-3">{item.image}</div>
+                                                    {item.name}
+                                                </div>
+                                            </div>
+                                        </Link>
                                     </div>
                                 )}
                             </Draggable>
